@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For my little star ⭐</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1b1b;--cream:#fff3dc;--pink:#ff8fb1;--yel:#ffd23f;--mint:#7ee0c3;--lil:#b9a4ff;--sky:#6ec6ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}
+body{background:var(--cream);background-image:radial-gradient(rgba(255,143,177,.35) 2px,transparent 2.5px);background-size:18px 18px;font-family:'Patrick Hand','Comic Sans MS',cursive;color:var(--ink);font-size:20px}
+h1,h2,.bang{font-family:Bangers,Impact,'Comic Sans MS',sans-serif;letter-spacing:2px;font-weight:400;margin:0}
+.scene{display:none;min-height:100vh;padding:24px 16px;align-items:center;justify-content:center;flex-direction:column;text-align:center;position:relative}
+.scene.on{display:flex}
+.panel{background:#fff;border:4px solid var(--ink);border-radius:14px;box-shadow:8px 8px 0 var(--ink);padding:22px;max-width:420px;width:100%}
+.btn{font:inherit;font-family:Bangers,Impact,sans-serif;letter-spacing:2px;font-size:26px;background:var(--yel);border:4px solid var(--ink);border-radius:12px;box-shadow:5px 5px 0 var(--ink);padding:10px 22px;cursor:pointer;color:var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.btn:focus-visible{outline:4px solid var(--sky)}
+/* cover */
+.burst{background:var(--pink);border:4px solid var(--ink);padding:26px 30px;clip-path:polygon(50% 0,61% 12%,78% 5%,80% 22%,97% 27%,88% 42%,100% 55%,84% 63%,88% 82%,70% 80%,60% 97%,50% 84%,38% 98%,30% 80%,12% 84%,16% 64%,0 55%,12% 42%,3% 27%,20% 22%,22% 5%,39% 12%);width:300px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:wob 1.6s infinite}
+.burst h1{font-size:44px;line-height:1}
+@keyframes wob{50%{transform:rotate(4deg) scale(1.04)}}
+/* chat */
+#chat{display:flex;flex-direction:column;gap:12px;min-height:300px;text-align:left}
+.msg{background:var(--mint);border:3px solid var(--ink);border-radius:16px 16px 16px 2px;padding:8px 14px;align-self:flex-start;max-width:85%;animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
+.msg.me{background:var(--lil)}
+@keyframes pop{from{transform:scale(0)}}
+.who{font-family:Bangers,sans-serif;letter-spacing:2px;font-size:22px;border-bottom:3px dashed var(--ink);padding-bottom:6px;margin-bottom:14px}
+/* countdown + fireworks */
+#sky{background:#060618;padding:0;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+#num{position:relative;font-family:Bangers,Impact,sans-serif;font-size:min(48vw,260px);color:var(--yel);-webkit-text-stroke:6px var(--ink);text-shadow:10px 10px 0 var(--pink);line-height:1}
+#num.p{animation:pop .5s cubic-bezier(.3,1.6,.5,1)}
+#cap{position:relative;color:#fff;font-size:24px}
+#hb{position:absolute;top:18%;left:0;right:0;font-family:Bangers,Impact,sans-serif;font-size:min(14vw,90px);color:var(--yel);-webkit-text-stroke:3px var(--ink);text-shadow:6px 6px 0 var(--pink);opacity:0;transition:opacity 1.5s;padding:0 10px}
+#rail{position:absolute;left:0;right:0;bottom:0;height:70px;border-top:8px solid #000;background:repeating-linear-gradient(90deg,#000 0 6px,transparent 6px 26px);pointer-events:none}
+#moon{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:20px;width:54px;height:54px;border-radius:50%;background:#fff6c9;box-shadow:inset -12px -6px 0 #f0dc8a;border:3px solid var(--ink);cursor:pointer;z-index:5}
+#skip{position:absolute;bottom:90px;right:14px;z-index:5;background:none;border:0;color:#9ab;font:inherit;text-decoration:underline;cursor:pointer}
+/* cake */
+.bubble{background:#fff;border:4px solid var(--ink);border-radius:20px;padding:10px 18px;box-shadow:5px 5px 0 var(--ink);margin:10px 0;max-width:340px}
+#flame{transform-origin:150px 62px;animation:fl .25s infinite alternate}
+@keyframes fl{to{transform:scale(1.12,.9) rotate(3deg)}}
+.out #flame{display:none}
+#smoke{display:none;font-size:34px}.out #smoke{display:block;animation:up 2s forwards}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+/* bouquet */
+.fl{transform-box:fill-box;transform-origin:center;animation:bloom .7s both cubic-bezier(.3,1.6,.5,1)}
+@keyframes bloom{from{transform:scale(0) rotate(-90deg)}}
+/* notes */
+#notes{align-items:stretch;justify-content:flex-start;padding:30px 14px 80px}
+#notes h2{font-size:48px;margin-bottom:6px}
+#grid{columns:2 260px;column-gap:22px;max-width:900px;margin:24px auto 0;width:100%}
+.note{break-inside:avoid;margin:0 0 30px;padding:26px 18px 18px;border:4px solid var(--ink);border-radius:6px;box-shadow:6px 6px 0 var(--ink);text-align:left;position:relative;opacity:0;transform:translateY(30px) rotate(var(--r));transition:.6s}
+.note.in{opacity:1;transform:rotate(var(--r))}
+.note:before{content:"";position:absolute;top:-16px;left:50%;width:90px;height:28px;margin-left:-45px;background:rgba(255,255,255,.7);border:2px solid var(--ink);transform:rotate(-3deg)}
+.note h3{font-family:Bangers,sans-serif;letter-spacing:2px;font-weight:400;font-size:28px;margin:0 0 8px}
+.note h3 i{font-style:normal;background:var(--ink);color:#fff;border-radius:6px;padding:0 8px;margin-right:8px;font-size:22px}
+.note p{margin:0;line-height:1.35}
+#end{margin-top:20px;text-align:center}
+#egg{display:none;margin:14px auto}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.note{opacity:1}}
+</style></head><body>
+
+<section class="scene on" id="s0">
+ <div class="burst"><h1>1 NEW<br>MESSAGE!</h1><div style="font-size:22px">from: me 🙈</div></div>
+ <p style="margin:26px 0 14px">psst… this one is only for you</p>
+ <button class="btn" id="open">OPEN IT</button>
+</section>
+
+<section class="scene" id="s1">
+ <div class="panel"><div class="who">💬 ME ⭐</div><div id="chat"></div>
+ <div style="margin-top:18px"><button class="btn" id="go" style="display:none">I’M ON THE BALCONY!</button></div></div>
+</section>
+
+<section class="scene" id="sky">
+ <canvas id="cv"></canvas><div id="moon" title="psst"></div>
+ <div id="hb">HAPPY BIRTHDAY, LITTLE STAR!</div>
+ <div id="num"></div><div id="cap"></div><div id="rail"></div><button id="skip">skip</button>
+</section>
+
+<section class="scene" id="s3">
+ <h1 style="font-size:40px">MAKE A WISH ✨</h1>
+ <div class="bubble" id="wish">blow out the candle! (use your breath, or tap the button)</div>
+ <svg id="cake" viewBox="0 0 300 300" width="300" style="max-width:90vw;overflow:visible" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round">
+  <ellipse cx="150" cy="282" rx="125" ry="12" fill="#1b1b1b" opacity=".25" stroke="none"/>
+  <rect x="35" y="190" width="230" height="88" rx="10" fill="#ffd0e0"/>
+  <path d="M35 205q14 28 28 0t30 0 30 0 30 0 30 0 30 0 27 0v-15H35z" fill="#fff"/>
+  <rect x="70" y="120" width="160" height="70" rx="10" fill="#ff8fb1"/>
+  <path d="M70 135q13 24 26 0t27 0 27 0 27 0 27 0v-15H70z" fill="#fff"/>
+  <circle cx="90" cy="235" r="7" fill="#ffd23f"/><circle cx="150" cy="248" r="7" fill="#7ee0c3"/><circle cx="210" cy="235" r="7" fill="#b9a4ff"/>
+  <circle cx="110" cy="165" r="6" fill="#ffd23f"/><circle cx="190" cy="165" r="6" fill="#7ee0c3"/>
+  <rect x="142" y="70" width="16" height="50" fill="#6ec6ff"/><path d="M142 84l16 8M142 98l16 8" stroke-width="3"/>
+  <g id="flame"><path d="M150 36c14 14 14 28 0 32-14-4-14-18 0-32z" fill="#ffb347"/><path d="M150 48c6 7 6 13 0 15-6-2-6-8 0-15z" fill="#fff3a0" stroke-width="2"/></g>
+ </svg>
+ <div id="smoke">💨</div>
+ <button class="btn" id="blow">TAP TO BLOW 💨</button>
+</section>
+
+<section class="scene" id="s4">
+ <h1 style="font-size:40px">17 FLOWERS FOR YOU</h1>
+ <svg id="bq" viewBox="0 0 400 460" width="380" style="max-width:94vw" stroke="#1b1b1b" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></svg>
+ <div class="bubble" id="bqt" style="opacity:0;transition:opacity 1s">one for every year of you 🌸</div>
+ <button class="btn" id="rd" style="opacity:0;transition:opacity 1s">READ MY NOTES</button>
+</section>
+
+<section class="scene" id="notes">
+ <h2>A FEW THINGS I NEVER SAY OUT LOUD</h2><div>(pinned up for you, little star)</div>
+ <div id="grid"></div>
+ <div id="end"><div class="bang" style="font-size:34px">Keep shining. ⭐</div>
+</section>
+
+<script>
+const $=s=>document.querySelector(s),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function show(id){document.querySelectorAll('.scene').forEach(s=>s.classList.toggle('on',s.id===id));scrollTo(0,0)}
+let AC;function ac(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)()}catch(e){}return AC}
+function noise(d,f,g,type,f2){const c=ac();if(!c)return;const n=c.sampleRate*d,b=c.createBuffer(1,n,c.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=(Math.random()*2-1)*(1-i/n);const s=c.createBufferSource();s.buffer=b;const fl=c.createBiquadFilter();fl.type=type||'lowpass';fl.frequency.value=f;if(f2)fl.frequency.linearRampToValueAtTime(f2,c.currentTime+d);const gn=c.createGain();gn.gain.value=g;s.connect(fl);fl.connect(gn);gn.connect(c.destination);s.start()}
+function beep(f,d=.15){const c=ac();if(!c)return;const o=c.createOscillator(),g=c.createGain();o.frequency.value=f;o.type='square';g.gain.value=.08;g.gain.linearRampToValueAtTime(0,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d)}
+const boom=()=>{noise(1.4,350,.7);noise(.5,2500,.15,'highpass')},whoosh=()=>noise(.9,400,.12,'bandpass',2500),crack=()=>{for(let i=0;i<5;i++)setTimeout(()=>noise(.08,4000,.12,'highpass'),i*70+Math.random()*80)};
+
+// cover + chat
+$('#open').onclick=async()=>{ac();beep(880);show('s1');const m=[["hey little star ✨"],["are you free right now?"],["go to your balcony 🌙"],["yes. right now. don’t ask questions 😤"],["i’ll start the countdown when you’re there"]];
+ for(const [t] of m){await sleep(1100);const d=document.createElement('div');d.className='msg';d.textContent=t;$('#chat').appendChild(d);beep(660,.08)}
+ await sleep(900);$('#go').style.display='inline-block'};
+$('#go').onclick=()=>{show('sky');countdown()};
+
+// fireworks
+const cv=$('#cv'),x=cv.getContext('2d');let W,H;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+let R=[],P=[],run=false;
+const rnd=(a,b)=>a+Math.random()*(b-a);
+function launch(px,hue,type){R.push({x:px??rnd(W*.15,W*.85),y:H-60,vy:-rnd(9,13)*H/800,vx:rnd(-.6,.6),ty:rnd(H*.15,H*.5),hue:hue??rnd(0,360),type:type||['peony','ring','willow','crackle','peony'][Math.random()*5|0]});whoosh()}
+function burst(r){boom();const n=r.type==='willow'?70:r.type==='ring'?54:84;
+ for(let i=0;i<n;i++){let a=Math.PI*2*i/n+rnd(-.05,.05),s=r.type==='ring'?4:rnd(1,5.2)*(H/800+.4);if(r.type==='willow'){s=rnd(1,3.6);r.hue=42}
+  P.push({x:r.x,y:r.y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:1,dec:r.type==='willow'?.007:rnd(.012,.02),h:r.hue+rnd(-12,12),g:r.type==='willow'?.035:.05,dr:r.type==='willow'?.975:.98,cr:r.type==='crackle'&&Math.random()<.5})}}
+function frame(){if(!run)return;x.globalCompositeOperation='source-over';x.fillStyle='rgba(6,6,24,.2)';x.fillRect(0,0,W,H);x.globalCompositeOperation='lighter';
+ R=R.filter(r=>{r.x+=r.vx;r.y+=r.vy;r.vy*=.985;P.push({x:r.x,y:r.y,vx:rnd(-.2,.2),vy:rnd(.3,1),l:.6,dec:.04,h:35,g:.02,dr:.9});if(r.y<=r.ty||r.vy>-1.2){burst(r);return false}return true});
+ P=P.filter(p=>{const px=p.x,py=p.y;p.vx*=p.dr;p.vy=p.vy*p.dr+p.g;p.x+=p.vx;p.y+=p.vy;p.l-=p.dec;if(p.cr&&p.l<.25){p.cr=0;crack();for(let k=0;k<4;k++)P.push({x:p.x,y:p.y,vx:rnd(-2,2),vy:rnd(-2,2),l:.5,dec:.05,h:55,g:.03,dr:.95})}
+  if(p.l<=0)return false;x.strokeStyle=`hsla(${p.h},100%,${60+p.l*25}%,${Math.min(1,p.l*1.5)*(Math.random()<.9?1:.4)})`;x.lineWidth=2;x.beginPath();x.moveTo(px,py);x.lineTo(p.x,p.y);x.stroke();return true});
+ requestAnimationFrame(frame)}
+async function countdown(){ac();const n=$('#num'),c=$('#cap');c.textContent='look at the sky 🌌';
+ for(let i=10;i>=1;i--){n.textContent=i;n.classList.remove('p');void n.offsetWidth;n.classList.add('p');beep(i<=3?1000:600,.2);await sleep(1000)}
+ n.textContent='';c.textContent='';run=true;frame();const t0=performance.now();let nx=0,hb=0,ended=false;
+ const sk=$('#skip');let skipped=false;sk.onclick=()=>skipped=true;
+ while(!skipped){const e=(performance.now()-t0)/1000;if(e>=nx){const fin=e>50;
+   if(fin){for(let k=0;k<3;k++)setTimeout(()=>launch(),k*120)}else launch(e<6?W/2:null);
+   if(Math.random()<.25&&!fin)setTimeout(()=>launch(),250);
+   nx=e+(e<8?1.8:e<40?rnd(.7,1.3):e<50?.6:.35)}
+  if(e>50&&!hb){hb=1;$('#hb').style.opacity=1}
+  if(e>62)break;await sleep(100)}
+ $('#hb').style.opacity=0;await sleep(1800);run=false;sk.onclick=null;show('s3');cake()}
+$('#moon').onclick=()=>{$('#cap').textContent='same moon, same sky 🌙';setTimeout(()=>{if(!run)return;$('#cap').textContent=''},3000)};
+
+// cake
+let blown=false;
+function out(){if(blown)return;blown=true;$('#cake').classList.add('out');$('#s3').classList.add('out');noise(.4,1200,.15,'lowpass');
+ $('#wish').textContent='YAYYY! hope your wish comes true 🎉';confetti();$('#blow').style.display='none';setTimeout(()=>{show('s4');bouquet()},3200)}
+$('#blow').onclick=out;
+async function cake(){try{const s=await navigator.mediaDevices.getUserMedia({audio:true}),c=ac(),a=c.createAnalyser(),src=c.createMediaStreamSource(s);a.fftSize=512;src.connect(a);const d=new Uint8Array(a.fftSize);let hold=0;
+ (function l(){if(blown){s.getTracks().forEach(t=>t.stop());return}a.getByteTimeDomainData(d);let m=0;for(const v of d)m=Math.max(m,Math.abs(v-128));hold=m>60?hold+1:0;if(hold>14)out();else requestAnimationFrame(l)})()}catch(e){}}
+function confetti(){const f=document.createElement('canvas');f.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9';document.body.appendChild(f);f.width=innerWidth;f.height=innerHeight;const g=f.getContext('2d'),cs=['#ff8fb1','#ffd23f','#7ee0c3','#b9a4ff','#6ec6ff'],q=[];for(let i=0;i<140;i++)q.push({x:rnd(0,f.width),y:rnd(-f.height,0),v:rnd(2,5),c:cs[i%5],r:rnd(0,6),s:rnd(6,12)});let t=0;(function l(){g.clearRect(0,0,f.width,f.height);q.forEach(p=>{p.y+=p.v;p.r+=.1;g.fillStyle=p.c;g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillRect(0,0,p.s,p.s*.6);g.restore()});if(++t<260)requestAnimationFrame(l);else f.remove()})()}
+
+// bouquet: 1 + 6 + 10 = 17
+function flower(cx,cy,r,col,delay){let p='';const rot=rnd(0,60);for(let i=0;i<6;i++)p+=`<ellipse cx="${r*.55}" cy="0" rx="${r*.52}" ry="${r*.3}" fill="${col}" transform="rotate(${rot+i*60})"/>`;
+ return `<g class="fl" style="animation-delay:${delay}s"><g transform="translate(${cx} ${cy})">${p}<circle r="${r*.28}" fill="#ffd23f"/></g></g>`}
+function bouquet(){const cols=['#ff8fb1','#ffffff','#b9a4ff','#ff7a7a','#ffd0e0','#6ec6ff','#ffb347'],F=[[200,150,0]];
+ for(let i=0;i<6;i++){const a=Math.PI*2*i/6;F.push([200+Math.cos(a)*58,150+Math.sin(a)*52,1])}
+ for(let i=0;i<10;i++){const a=Math.PI*2*i/10+.3;F.push([200+Math.cos(a)*112,150+Math.sin(a)*92,2])}
+ let s='<path d="M200 380L90 230M200 380L310 230" stroke="#3d9a5f" stroke-width="5" fill="none"/>',f='';
+ F.forEach(q=>s+=`<path d="M200 390L${q[0]} ${q[1]}" stroke="#3d9a5f" stroke-width="5" fill="none"/>`);
+ s+='<path d="M95 285L305 285L215 440L185 440Z" fill="#ffd23f"/><path d="M150 285L190 440M250 285L210 440" fill="none" stroke-width="3"/><path d="M200 300c-18-18-34 4 0 26 34-22 18-44 0-26z" fill="#ff7a7a"/>';
+ F.slice().reverse().forEach((q,i)=>f+=flower(q[0],q[1],q[2]==0?36:q[2]==1?34:32,cols[i%7],i*.18));
+ $('#bq').innerHTML=s.replace(/(<path d="M95)/,'$1')+f;
+ setTimeout(()=>{$('#bqt').style.opacity=1;$('#rd').style.opacity=1},3600)}
+$('#rd').onclick=()=>{show('notes');notes()};
+
+// notes
+const N=[["My favourite person","I don’t think you realise how easily you can make my day better just by being there. Sometimes I don’t even need a proper conversation, just knowing you’re around is enough. You’re my little star for a reason."],["A little reminder","Please don’t ever think you’re difficult to love. You don’t have to be happy all the time, you don’t have to pretend everything is okay and you definitely don’t have to be perfect around me. I want the real you."],["If you miss me","Imagine me sitting right beside you, annoying you for no reason, stealing your attention and probably refusing to let you sleep on time. Distance is annoying, but it doesn’t change how much I want to be around you."],["Your smile","I hope you smile a little more today. And not those forced smiles you give people when you’re not feeling okay. I mean those genuine ones where your entire face lights up. I wish I could see one right now."],["On your bad days","Some days are just going to be terrible and that’s okay. You don’t have to figure everything out immediately. Take your time, breathe, cry if you need to. You deserve patience too, little star."],["A confession","You’re becoming one of those people I randomly think about in the middle of doing absolutely nothing. I’ll be studying or doing something completely unrelated and suddenly there you are in my head. It’s honestly ridiculous how often that happens."],["About the distance","Bihar and Odisha might be different places on a map, but I like thinking that we’re still looking at the same moon. Maybe it’s a little cheesy, but let me have this one. Until I can be beside you, I’ll settle for sharing the same sky."],["Never doubt yourself","I wish you could see yourself through kinder eyes sometimes. You’re so much more than the things you overthink about, the insecurities you carry or the moments you feel you’re not enough. There’s so much about you worth appreciating."],["A selfish little wish","I want more random conversations, more silly arguments, more laughing over absolutely stupid things, more late-night talks and more memories with you. I want the ordinary little moments too, not just the special ones."],["From me to my little star","If there’s one thing I want you to remember, it’s that you deserve to feel loved without having to constantly ask for it. You deserve softness, reassurance, effort and someone who makes you feel valued. I hope I get to give you more and more reasons to smile. Keep shining, my little star. The sky looks a little prettier with you in it."]];
+function notes(){const g=$('#grid');if(g.children.length)return;const c=['#ffd0e0','#fff3a0','#c9f2e6','#dcd3ff','#cfeaff'];
+ N.forEach((n,i)=>{const d=document.createElement('div');d.className='note';d.style.background=c[i%5];d.style.setProperty('--r',(i%2?1.4:-1.4)+'deg');d.innerHTML=`<h3><i>${String(i+1).padStart(2,'0')}</i>${n[0]}</h3><p>${n[1]}</p>`;g.appendChild(d)});
+ const io=new IntersectionObserver(e=>e.forEach(t=>{if(t.isIntersecting){t.target.classList.add('in');io.unobserve(t.target)}}),{threshold:.15});document.querySelectorAll('.note').forEach(n=>io.observe(n))}
+</script></body></html>
